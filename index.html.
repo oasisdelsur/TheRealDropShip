@@ -1,146 +1,199 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oasis del Sur</title>
-
-  <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
-    .container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .logo-container {
-      width: 280px;
-      height: 280px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 25px;
-    }
-
-    .logo {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    .languages {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 25px;
-    }
-
-    .languages button {
-      background: transparent;
-      border: 1px solid #fff;
-      color: #fff;
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .languages button:hover {
-      background-color: #fff;
-      color: #000;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 30px;
-    }
-
-    .enter {
-      display: inline-block;
-      text-decoration: none;
-      color: #000;
-      background-color: #fff;
-      padding: 14px 35px;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .enter:hover {
-      background-color: #ddd;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheRealDropShip</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+            background: #050505;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .welcome {
+            width: 100%;
+            max-width: 600px;
+            padding: 24px 20px;
+        }
+        .logo-container {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+        .languages {
+            width: 230px;
+            margin: 0 auto 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        .language {
+            background: #111;
+            color: white;
+            border: 1px solid #333;
+            border-radius: 9px;
+            padding: 8px 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+        .language:hover {
+            background: #222;
+            transform: scale(1.03);
+        }
+        .language.selected {
+            border-color: #00e676;
+            background: #181818;
+        }
+        h1 {
+            margin: 0 0 22px;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+        .enter {
+            display: inline-block;
+            background: #00e676;
+            color: #000;
+            text-decoration: none;
+            padding: 15px 55px;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+        .enter:hover {
+            background: #00ff88;
+            transform: scale(1.05);
+        }
+        @media (max-width: 600px) {
+            .welcome {
+                padding: 18px 15px;
+            }
+            .logo-container {
+                width: 250px;
+                height: 250px;
+                max-width: 68vw;
+                max-height: 68vw;
+                margin-bottom: 10px;
+            }
+            .languages {
+                width: 220px;
+                margin-bottom: 14px;
+                gap: 5px;
+            }
+            .language {
+                padding: 8px 4px;
+                font-size: 13px;
+            }
+            h1 {
+                font-size: 26px;
+                margin-bottom: 20px;
+            }
+            .enter {
+                padding: 14px 50px;
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-  <div class="container">
-
-    <div class="logo-container">
-      <img src="IMG_1620.jpeg" class="logo" alt="Oasis del Sur">
+    <div class="welcome">
+        <div class="logo-container">
+            <img
+                src="IMG_1620.jpeg"
+                class="logo"
+                alt="TheRealDropShip"
+            >
+        </div>
+        <div class="languages">
+            <button class="language selected" onclick="selectLanguage('it')">
+                🇮🇹 Italiano
+            </button>
+            <button class="language" onclick="selectLanguage('en')">
+                🇬🇧 English
+            </button>
+            <button class="language" onclick="selectLanguage('es')">
+                🇪🇸 Español
+            </button>
+            <button class="language" onclick="selectLanguage('de')">
+                🇩🇪 Deutsch
+            </button>
+        </div>
+        <h1 id="welcomeText">
+            Benvenuto in TheRealDropShip
+        </h1>
+        <a href="shop.html" class="enter" id="enterButton">
+            ENTRA
+        </a>
     </div>
-
-    <div class="languages">
-      <button onclick="changeLanguage('it')">🇮🇹 Italiano</button>
-      <button onclick="changeLanguage('en')">🇬🇧 English</button>
-      <button onclick="changeLanguage('es')">🇪🇸 Español</button>
-      <button onclick="changeLanguage('de')">🇩🇪 Deutsch</button>
-    </div>
-
-    <h1 id="welcomeText">Benvenuto in Oasis del Sur</h1>
-
-    <a href="shop.html" class="enter" id="enterButton">ENTRA</a>
-
-  </div>
-
-  <script>
-    const translations = {
-      it: {
-        welcome: "Benvenuto in Oasis del Sur",
-        enter: "ENTRA"
-      },
-      en: {
-        welcome: "Welcome to Oasis del Sur",
-        enter: "ENTER"
-      },
-      es: {
-        welcome: "Bienvenido a Oasis del Sur",
-        enter: "ENTRAR"
-      },
-      de: {
-        welcome: "Willkommen bei Oasis del Sur",
-        enter: "EINTRETEN"
-      }
-    };
-
-    function changeLanguage(language) {
-      document.getElementById("welcomeText").textContent =
-        translations[language].welcome;
-
-      document.getElementById("enterButton").textContent =
-        translations[language].enter;
-
-      localStorage.setItem("language", language);
-    }
-
-    const savedLanguage = localStorage.getItem("language");
-
-    if (savedLanguage && translations[savedLanguage]) {
-      changeLanguage(savedLanguage);
-    }
-  </script>
-
+    <script>
+        const translations = {
+            it: {
+                welcome: "Benvenuto in TheRealDropShip",
+                enter: "ENTRA"
+            },
+            en: {
+                welcome: "Welcome to TheRealDropShip",
+                enter: "ENTER"
+            },
+            es: {
+                welcome: "Bienvenido a TheRealDropShip",
+                enter: "ENTRAR"
+            },
+            de: {
+                welcome: "Willkommen bei TheRealDropShip",
+                enter: "EINTRETEN"
+            }
+        };
+        function selectLanguage(language) {
+            localStorage.setItem("language", language);
+            document.documentElement.lang = language;
+            document.getElementById("welcomeText").textContent =
+                translations[language].welcome;
+            document.getElementById("enterButton").textContent =
+                translations[language].enter;
+            document.querySelectorAll(".language").forEach(function(button) {
+                button.classList.remove("selected");
+            });
+            const buttons = document.querySelectorAll(".language");
+            const languageIndex = {
+                it: 0,
+                en: 1,
+                es: 2,
+                de: 3
+            };
+            buttons[languageIndex[language]].classList.add("selected");
+        }
+        window.addEventListener("load", function() {
+            const savedLanguage =
+                localStorage.getItem("language") || "it";
+            selectLanguage(savedLanguage);
+        });
+    </script>
 </body>
 </html>
