@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasis del Sur</title>
 
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .logo-container {
+      width: 280px;
+      height: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .languages {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .languages button {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .languages button:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .enter {
+      display: inline-block;
+      text-decoration: none;
+      color: #000;
+      background-color: #fff;
+      padding: 14px 35px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .enter:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="logo-container">
+      <img src="IMG_1620.jpeg" class="logo" alt="Oasis del Sur">
+    </div>
+
+    <div class="languages">
+      <button onclick="changeLanguage('it')">🇮🇹 Italiano</button>
+      <button onclick="changeLanguage('en')">🇬🇧 English</button>
+      <button onclick="changeLanguage('es')">🇪🇸 Español</button>
+      <button onclick="changeLanguage('de')">🇩🇪 Deutsch</button>
+    </div>
+
+    <h1 id="welcomeText">Benvenuto in Oasis del Sur</h1>
+
+    <a href="shop.html" class="enter" id="enterButton">ENTRA</a>
+
+  </div>
+
+  <script>
+    const translations = {
+      it: {
+        welcome: "Benvenuto in Oasis del Sur",
+        enter: "ENTRA"
+      },
+      en: {
+        welcome: "Welcome to Oasis del Sur",
+        enter: "ENTER"
+      },
+      es: {
+        welcome: "Bienvenido a Oasis del Sur",
+        enter: "ENTRAR"
+      },
+      de: {
+        welcome: "Willkommen bei Oasis del Sur",
+        enter: "EINTRETEN"
+      }
+    };
+
+    function changeLanguage(language) {
+      document.getElementById("welcomeText").textContent =
+        translations[language].welcome;
+
+      document.getElementById("enterButton").textContent =
+        translations[language].enter;
+
+      localStorage.setItem("language", language);
+    }
+
+    const savedLanguage = localStorage.getItem("language");
+
+    if (savedLanguage && translations[savedLanguage]) {
+      changeLanguage(savedLanguage);
+    }
+  </script>
+
+</body>
+</html>
